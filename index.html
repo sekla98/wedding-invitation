@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="km" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ប្រកាសពិធីមង្គលការ - Save the Date</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Khmer & English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#F3E5AB',
+                            DEFAULT: '#D4AF37',
+                            dark: '#996515',
+                            border: '#E6C687'
+                        },
+                        maroon: {
+                            DEFAULT: '#4A0E17',
+                            light: '#6E1B28'
+                        }
+                    },
+                    fontFamily: {
+                        khmer: ['"Kantumruy Pro"', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: #111;
+        }
+        /* ផ្ទៃខាងក្រោយលំនាំក្បាច់បុរាណ */
+        .khmer-pattern-bg {
+            background-color: #2b090e;
+            background-image: radial-gradient(#d4af37 0.75px, transparent 0.75px), radial-gradient(#d4af37 0.75px, #2b090e 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+        /* Custom gold gradient text and borders */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Glowing golden animation effects */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.7); }
+        }
+        @keyframes shine {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+        .animate-glow {
+            animation: pulseGlow 3s infinite;
+        }
+        
+        /* Shimmer effect for buttons */
+        .shimmer-btn {
+            background: linear-gradient(90deg, #D4AF37 0%, #FFF3B0 50%, #D4AF37 100%);
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+        }
+
+        /* បែបផែនផ្កាធ្លាក់ */
+        @keyframes fallDown {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        .falling-element {
+            position: absolute;
+            top: -20px;
+            color: #ffd700;
+            font-size: 14px;
+            user-select: none;
+            pointer-events: none;
+            animation: fallDown linear infinite;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen text-gray-800 khmer-pattern-bg">
+
+    <!-- Mobile Screen Container with Glow Effect -->
+    <div id="app-container" class="w-full max-w-md bg-[#FAF6EE] min-h-screen shadow-2xl relative overflow-hidden flex flex-col justify-between border-[8px] border-[#332211] animate-glow">
+
+        <!-- BACKGROUND MUSIC -->
+          <audio id="bgMusic" loop>
+          <source src="wedding-song.mp3" type="audio/mp3">
+          </audio>
+
+        <!-- MUSIC TOGGLE BUTTON -->
+        <button onclick="toggleMusic()" id="musicBtn" class="absolute top-4 right-4 z-50 bg-[#D4AF37] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110">
+            <i id="musicIcon" class="fas fa-music"></i>
+        </button>
+
+        <!-- ================= PAGE 1: ENVELOPE / OPENING SCREEN ================= -->
+        <div id="screen-welcome" class="absolute inset-0 z-40 bg-[#FAF6EE] flex flex-col items-center justify-center p-6 text-center transition-all duration-1000">
+            <!-- Decorative Border Frame with Sparkle Corners -->
+            <div class="absolute inset-4 border-2 border-[#D4AF37] p-2 pointer-events-none flex flex-col justify-between">
+                <div class="flex justify-between text-[#D4AF37] animate-pulse"><span>✦</span><span>✦</span></div>
+                <div class="flex justify-between text-[#D4AF37] animate-pulse"><span>✦</span><span>✦</span></div>
+            </div>
+
+            <div class="space-y-6 max-w-xs animate-float">
+                <div class="w-24 h-24 mx-auto bg-gradient-to-br from-[#D4AF37] to-[#996515] rounded-full flex items-center justify-center shadow-2xl mb-4 border-2 border-[#FFF3B0]">
+                    <span class="font-cinzel text-3xl text-white font-bold tracking-wider">S&M</span>
+                </div>
+                <h2 class="text-xl font-semibold text-[#8B6508]">សូមគោរពអញ្ជើញ</h2>
+                <p class="text-sm text-gray-600 leading-relaxed">ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមពិធីជប់លៀងអាហារសាមគ្គីមង្គលការកូនប្រុស កូនស្រីយើងខ្ញុំ</p>
+                
+                <!-- Guest Name Display -->
+                <div class="bg-white/90 border border-[#D4AF37] py-2 px-4 rounded-full shadow-inner">
+                    <span id="guestNameDisplay" class="text-sm font-bold text-[#996515]">ភ្ញៀវកិត្តិយស (មហាមិត្ត)</span>
+                </div>
+
+                <button onclick="openInvitation()" class="mt-4 w-full py-3 shimmer-btn text-white font-bold rounded-full shadow-xl hover:opacity-95 transition transform active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fas fa-envelope-open-text"></i> បើកធុងសំបុត្រ (Open Invitation)
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2: MAIN INVITATION CONTENT ================= -->
+        <div id="screen-main" class="flex-1 overflow-y-auto p-6 space-y-8 opacity-0 transition-opacity duration-1000 pointer-events-none">
+            
+            <!-- Header Section with Fade-In Animation -->
+            <div class="text-center pt-8 space-y-3 animate-float">
+                <div class="inline-block p-3 border-t border-b border-[#D4AF37]">
+                    <h1 class="text-2xl font-bold text-[#8B6508] font-cinzel">ពិធីមង្គលការ</h1>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest">Save the Date</p>
+                </div>
+                <h2 class="text-3xl font-bold gold-gradient-text">២៥ | ១០ | ២០២៦</h2>
+                <p class="text-xs text-gray-600">(ថ្ងៃអាទិត្យ ទី២៥ ខែតុលា ឆ្នាំ២០២៦)</p>
+            </div>
+
+            <!-- Couple Names Card -->
+            <div class="bg-white/80 border border-[#E6C687] p-4 rounded-2xl text-center shadow-lg space-y-4 backdrop-blur-sm">
+                <div class="grid grid-cols-2 gap-2 text-sm">
+                    <div class="transition transform hover:scale-105 duration-300">
+                        <p class="text-gray-500 text-xs">កូនប្រុស (Groom)</p>
+                        <p class="font-bold text-[#8B6508] text-base">​ វន សុភ័ក្រ្ត សីលា (Vorn Sopheak Seyla)</p>
+                    </div>
+                    <div class="transition transform hover:scale-105 duration-300">
+                        <p class="text-gray-500 text-xs">កូនស្រី (Bride)</p>
+                        <p class="font-bold text-[#8B6508] text-base">អម ម៉ារីតា (Orm Marita)</p>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-600 leading-relaxed pt-2 border-t border-gray-200">
+                    យើងខ្ញុំមានសេចក្តីសោមនស្សរីករាយសូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី... មកសំណាក់អាហារសាមគ្គីដើម្បីអបអរសាទរថ្ងៃដ៏វិសេសវិសាលរបស់យើងខ្ញុំ។
+                </p>
+            </div>
+
+            <!-- Countdown Timer with Motion Elements -->
+            <div class="bg-gradient-to-r from-[#8B6508] to-[#D4AF37] text-white p-4 rounded-2xl text-center shadow-xl">
+                <p class="text-xs uppercase tracking-wider mb-2 font-semibold flex items-center justify-center gap-1">
+                    <i class="fas fa-clock animate-spin"></i> រាប់ថយក្រោយថ្ងៃពិសេស (Countdown)
+                </p>
+                <div id="countdown" class="grid grid-cols-4 gap-2 text-center font-bold">
+                    <div class="bg-black/20 p-2 rounded-xl backdrop-blur-sm"><span id="days" class="text-lg">00</span><p class="text-[10px]">ថ្ងៃ</p></div>
+                    <div class="bg-black/20 p-2 rounded-xl backdrop-blur-sm"><span id="hours" class="text-lg">00</span><p class="text-[10px]">ម៉ោង</p></div>
+                    <div class="bg-black/20 p-2 rounded-xl backdrop-blur-sm"><span id="minutes" class="text-lg">00</span><p class="text-[10px]">នាទី</p></div>
+                    <div class="bg-black/20 p-2 rounded-xl backdrop-blur-sm"><span id="seconds" class="text-lg">00</span><p class="text-[10px]">វិនាទី</p></div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery with Zoom Effects -->
+<div class="space-y-3">
+    <h3 class="text-center font-bold text-[#8B6508] border-b pb-1 border-[#E6C687]">រូបភាពអនុស្សាវរីយ៍ (Gallery)</h3>
+    <div class="grid grid-cols-2 gap-3">
+        <div class="overflow-hidden rounded-xl shadow-md">
+            <img src="photo1.jpg" class="hover:scale-110 transition duration-500 object-cover h-36 w-full" alt="Couple Photo 1">
+        </div>
+        <div class="overflow-hidden rounded-xl shadow-md">
+            <img src="photo2.jpg" class="hover:scale-110 transition duration-500 object-cover h-36 w-full" alt="Couple Photo 2">
+        </div>
+    </div>
+</div>
+
+            <!-- Wedding Program Timeline -->
+            <div class="space-y-3">
+                <h3 class="text-center font-bold text-[#8B6508] border-b pb-1 border-[#E6C687]">កម្មវិធីពិធីមង្គលការ</h3>
+                <div class="space-y-2 text-xs">
+                    <div class="bg-white/90 p-3 rounded-xl shadow-sm flex items-center gap-3 border-l-4 border-[#D4AF37] transition transform hover:-translate-y-1 duration-300">
+                        <i class="fas fa-ring text-[#D4AF37] text-lg animate-bounce"></i>
+                        <div>
+                            <p class="font-bold text-gray-800">ម៉ោង ០៧:០០ ព្រឹក</p>
+                            <p class="text-gray-600">ចាប់ផ្តើមពិធីមានអាហារពេលព្រឹក</p>
+                        </div>
+                    </div>
+                    <div class="bg-white/90 p-3 rounded-xl shadow-sm flex items-center gap-3 border-l-4 border-[#D4AF37] transition transform hover:-translate-y-1 duration-300">
+                        <i class="fas fa-utensils text-[#D4AF37] text-lg animate-pulse"></i>
+                        <div>
+                            <p class="font-bold text-gray-800">ម៉ោង ១១:០០ ថ្ងៃត្រង់</p>
+                            <p class="text-gray-600">ពិធីជប់លៀងអាហារសាមគ្គី</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location & Map -->
+            <div class="space-y-3">
+                <h3 class="text-center font-bold text-[#8B6508] border-b pb-1 border-[#E6C687]">ទីតាំងពិធីមង្គលការ (Location)</h3>
+                <div class="bg-white/90 p-4 rounded-xl shadow-sm text-center space-y-3">
+                    <p class="text-xs text-gray-600 font-semibold">ជិតខ្លឹបបាល់ទាត់វិសាខា រាជធានីភ្នំពេញ</p>
+                    <a href="https://maps.app.goo.gl/dGDGuLtvbnnKkdsMA?g_st=ifm" target="_blank" class="inline-block w-full py-2 bg-gradient-to-r from-[#D4AF37] to-[#996515] text-white text-xs font-bold rounded-lg shadow-md hover:opacity-95 transition transform active:scale-95">
+                        <i class="fas fa-map-marker-alt"></i> បើកមើលផែនទី Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer / Credits -->
+            <div class="text-center py-6 text-xs text-gray-500 space-y-1">
+                <p>សូមអរគុណ និងស្វាគមន៍ដោយក្តីរីករាយ!</p>
+                <p class="font-cinzel font-bold text-[#D4AF37]">Seyla Invitation © 2026</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Animations, Sound & Countdown -->
+    <script>
+        // Check URL parameters for custom guest names (e.g., ?to=Vibol)
+        const urlParams = new URLSearchParams(window.location.search);
+        const guest = urlParams.get('to');
+        if (guest) {
+            document.getElementById('guestNameDisplay').innerText = decodeURIComponent(guest);
+        }
+
+        let isPlaying = false;
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        const musicIcon = document.getElementById('musicIcon');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicIcon.className = "fas fa-music";
+                musicBtn.classList.remove('animate-spin');
+            } else {
+                bgMusic.play().catch(e => console.log("Audio play blocked by browser:", e));
+                musicIcon.className = "fas fa-compact-disc";
+                musicBtn.classList.add('animate-spin');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function openInvitation() {
+            // Play music automatically upon opening
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicIcon.className = "fas fa-compact-disc";
+                musicBtn.classList.add('animate-spin');
+            }).catch(e => console.log("Autoplay restricted"));
+
+            // Animate screen transition (slide up door opening effect)
+            const welcomeScreen = document.getElementById('screen-welcome');
+            const mainScreen = document.getElementById('screen-main');
+
+            welcomeScreen.classList.add('-translate-y-full', 'opacity-0');
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                mainScreen.classList.remove('opacity-0', 'pointer-events-none');
+            }, 800);
+        }
+
+        // Countdown Timer Logic to Target Date (Oct 25, 2026)
+        const weddingDate = new Date("October 25, 2026 07:00:00").getTime();
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "ពិធីមង្គលការបានចាប់ផ្តើមហើយ!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+
+        // Falling Sparkles Effect
+        function createFallingSparkles() {
+            const container = document.getElementById('app-container');
+            const symbols = ['✦', '✧', '🌸', '✨'];
+            
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('falling-element');
+                sparkle.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                sparkle.style.left = Math.random() * container.clientWidth + 'px';
+                sparkle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                sparkle.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                
+                container.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 6000);
+            }, 400);
+        }
+
+        window.addEventListener('load', () => {
+            createFallingSparkles();
+        });
+    </script>
+</body>
+</html>

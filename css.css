@@ -1,0 +1,42 @@
+/* ផ្ទៃខាងក្រោយលំនាំក្បាច់បុរាណ */
+.khmer-pattern-bg {
+    background-color: #2b090e;
+    background-image: radial-gradient(#d4af37 0.75px, transparent 0.75px), radial-gradient(#d4af37 0.75px, #2b090e 0.75px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+}
+
+/* ចលនារាំទន់ភ្លន់បែបអប្សរា/បុរាណ */
+@keyframes apsaraFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(1deg); }
+}
+.khmer-float {
+    animation: apsaraFloat 5s ease-in-out infinite;
+}
+
+/* អង្រួនប៊ូតុងបើកសំបុត្រ ឬអត្ថបទឱ្យទាក់ទាញ */
+@keyframes royalGlow {
+    0%, 100% { box-shadow: 0 0 10px #d4af37, inset 0 0 15px #ffd700; }
+    50% { box-shadow: 0 0 25px #ffcc00, inset 0 0 25px #ffea75; }
+}
+.royal-border {
+    border: 2px solid #d4af37;
+    animation: royalGlow 3s infinite;
+}
+
+/* បែបផែនផ្កា/ដួងចិត្តធ្លាក់ (Falling Sparkles Effect) */
+@keyframes fallDown {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+.falling-element {
+    position: absolute;
+    top: -20px;
+    color: #ffd700;
+    font-size: 14px;
+    user-select: none;
+    pointer-events: none;
+    animation: fallDown linear infinite;
+    z-index: 50;
+}
